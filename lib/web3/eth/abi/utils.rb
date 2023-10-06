@@ -16,11 +16,11 @@ module Web3::Eth::Abi
     # Not the keccak in sha3, although it's underlying lib named SHA3
     #
     def keccak256(x)
-      Digest::SHA3.digest(x, 256)
+      OpenSSL::Digest::SHA256.new(x).digest
     end
 
     def keccak512(x)
-      Digest::SHA3.digest(x, 512)
+      OpenSSL::Digest::SHA512.new(x).digest
     end
 
     def keccak256_rlp(x)
